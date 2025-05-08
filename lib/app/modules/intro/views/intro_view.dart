@@ -10,7 +10,7 @@ class IntroView extends GetView<IntroController> {
     return Scaffold(
       body: Center(
         child: Image.asset(
-          'assets/images/intro.png',
+          'assets/images/test.svg',
           fit: BoxFit.cover,
           width: double.infinity,
           height: double.infinity,
