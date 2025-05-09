@@ -1,3 +1,5 @@
+import 'package:api_template_app/app/widgets/button_menu.dart';
+import 'package:api_template_app/app/widgets/homescreen/service.dart';
 import 'package:api_template_app/app/widgets/homescreen/user_point.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +8,7 @@ import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 import 'package:api_template_app/app/widgets/homescreen/catagories_button.dart';
 import 'package:api_template_app/app/widgets/homescreen/loan.dart';
+import 'package:api_template_app/app/widgets/homescreen/installment.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -40,6 +43,7 @@ class HomeView extends GetView<HomeController> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             UserPoint(
+              key: const Key('userPoint'),
               userName: controller.userName.value,
               greetingMessage: 'เอเอเอ็ม ยินดีให้บริการ',
               pointA: 'A 0',
@@ -60,6 +64,7 @@ class HomeView extends GetView<HomeController> {
                 ),
                 SizedBox(height: 8),
                 CategoriesButton(
+                  key: const Key('catagoryButton'),
                   categories: controller.categories,
                   selectedCategoryIndex: controller.selectedCategoryIndex,
                   onCategorySelected: (index) {
@@ -75,6 +80,7 @@ class HomeView extends GetView<HomeController> {
               children: [
                 SizedBox(height: 8),
                 Loan(
+                  key: const Key('loan1'),
                   title: 'เอเอเอ็ม พร้อมใช้',
                   yourLoan: 'จำนวนสินเชื่อของคุณ',
                   loanAmount: 5000,
@@ -84,9 +90,36 @@ class HomeView extends GetView<HomeController> {
                 ),
               ],
             ),
+            SizedBox(height: 16),
+            Column(
+              children: [
+                Installment(
+                  key: const Key('installment1'),
+                  title: 'ค่างวด',
+                  total: 'ยอดที่ต้องชำระ',
+                  amount: 1700.65,
+                  deadline: 'วันครบกำหนดชำระ',
+                  dateTime: 'วันครบกำหนด',
+                  contract: 'เลขที่สัญญา',
+                  conTractNumber: 'AMML32809',
+                  payFirst: 'ชำระเงินครบกำหนด',
+                  point: 1000,
+                  buttonText: 'จ่ายค่างวด',
+                  controller: controller,
+                ),
+              ],
+            ),
+            SizedBox(height: 24),
+            Service(
+              title: 'เมนูบริการ',
+              registerLoan: 'สมัครสินเชื่อ',
+              registerInstallment: '5,000 \nพร้อมใช้',
+              branch: 'สาขา',
+            ),
           ],
         ),
       ),
+      bottomNavigationBar: ButtonMenu(currentIndex: 0),
     );
   }
 }

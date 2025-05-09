@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 class HomeController extends GetxController {
   final userName = 'user'.obs;
   final selectedCategoryIndex = 0.obs;
+  final selectedInstallmentIndex = 0.obs;
 
   final categories =
       [
@@ -13,5 +14,9 @@ class HomeController extends GetxController {
 
   void selectCatagory(int index) {
     selectedCategoryIndex.value = index;
+  }
+
+  void selectInstallment(int index) {
+    selectedInstallmentIndex.value = index;
   }
 }

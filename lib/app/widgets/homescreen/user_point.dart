@@ -7,12 +7,12 @@ class UserPoint extends StatelessWidget {
   final String pointB;
 
   const UserPoint({
-    Key? key,
+    super.key,
     required this.userName,
     required this.greetingMessage,
     required this.pointA,
     required this.pointB,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class UserPoint extends StatelessWidget {
               width: 24,
               height: 44,
               decoration: BoxDecoration(
-                color: Color(0xFFFF9300),
+                color: Color.fromRGBO(255, 147, 0, 0.08),
                 borderRadius: BorderRadius.all(Radius.circular(12)),
               ),
               child: Center(child: Icon(Icons.chevron_right, size: 24)),

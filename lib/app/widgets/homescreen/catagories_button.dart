@@ -7,11 +7,11 @@ class CategoriesButton extends StatelessWidget {
   final Function(int) onCategorySelected;
 
   const CategoriesButton({
-    Key? key,
+    super.key,
     required this.categories,
     required this.selectedCategoryIndex,
     required this.onCategorySelected,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return Obx(
